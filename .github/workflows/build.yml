@@ -6,6 +6,9 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  GITHUB_TOKEN: ${{ github.token }}
+
 jobs:
   dummy-release:
     name: Create a dummy release
