@@ -8,12 +8,15 @@ on:
 
 env:
   RELEASE: ${{ format('v{0}', github.event.workflow_run.run_number) }}
+  GITHUB_TOKEN: ${{ github.token }}
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     concurrency: production
     environment: prod
+    permissions:
+      deployments: write
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'}}
 
     steps:
