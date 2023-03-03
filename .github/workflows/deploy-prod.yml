@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     concurrency: production
     environment: prod
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'}
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'}}
 
     steps:
       - name: Create deployment
