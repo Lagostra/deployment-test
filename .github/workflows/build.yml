@@ -13,9 +13,11 @@ jobs:
   dummy-release:
     name: Create a dummy release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Create a new release
-        uses: ncipollo/release-action@v1
+        uses: actions/create-release@v1
         with:
-          tag: v${{github.run_number}}
-          name: Release v${{github.run_number}}
+          tag_name: v${{github.run_number}}
+          release_name: Release v${{github.run_number}}
