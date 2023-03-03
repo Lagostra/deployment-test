@@ -1,0 +1,18 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  dummy-release:
+    name: Create a dummy release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create a new release
+        uses: actions/create-release@v1
+        with:
+          tag_name: v${{github.run_number}}
+          release_name: Release v${{github.run_number}}
